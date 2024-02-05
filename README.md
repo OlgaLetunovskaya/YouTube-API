@@ -18,12 +18,20 @@
 В настройках коллекции в разделе "Authorization" выбрать тип "API Key" и указать полученный API ключ.  
 В каждом запросе добавить API ключ в заголовки запроса с помощью ключа Authorization и значения <API_KEY>.  
 #### Тестирование методов  
+Позитивные  
 Получение списка видео по id   
 GET https://www.googleapis.com/youtube/v3/videos?part=snippet&id=jifUJrYPZQQ&<API_KEY>  
 Постановка лайка на видео  
 POST https://www.googleapis.com/youtube/v3/videos/rate?rating=like&id=jifUJrYPZQQ&<API_KEY>&<access_token>  
 Получение списка самых популярных видео  
 GET https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&<API_KEY>  
+Негативные  
+Получение списка видео по некорректному id   
+GET https://www.googleapis.com/youtube/v3/videos?part=snippet&id=jifUJrYPZQQ&<API_KEY>  
+Постановка повторного лайка на видео  
+POST https://www.googleapis.com/youtube/v3/videos/rate?rating=like&id=jifUJrYPZQQ&<API_KEY>&<access_token>  
+Получение списка самых популярных видео без API_key    
+GET https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&<API_KEY> 
 #### Запуск коллекции  
 Открыть Postman.  
 Импортировать созданную коллекцию.  
